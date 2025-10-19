@@ -4,10 +4,7 @@ Aplikasi web sistem arsip surat digital yang dibangun dengan Laravel 10/11 untuk
 
 ## Fitur Utama
 
--   **Manajemen User Multi-role** (Admin, Staff, User)
 -   **Manajemen Surat Masuk & Keluar** dengan upload file
--   **Klasifikasi & Kategori Surat**
--   **Disposisi Surat**
 -   **Laporan & Export** (Excel, PDF)
 -   **Dashboard dengan Statistik**
 -   **Pencarian & Filter Advanced**
