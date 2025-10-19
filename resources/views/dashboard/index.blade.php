@@ -139,24 +139,7 @@
                             <div class="chart-area">
                                 <canvas id="suratChart"></canvas>
                             </div>
-                            <div class="mt-4">
-                                <div class="row text-center">
-                                    <div class="col-md-6 mb-3">
-                                        <div class="stat-card bg-primary-soft p-3 rounded">
-                                            <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
-                                            <h4 class="text-primary mb-1">{{ $totalSuratMasuk }}</h4>
-                                            <small class="text-muted">Total Surat Masuk</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="stat-card bg-success-soft p-3 rounded">
-                                            <i class="fas fa-paper-plane fa-2x text-success mb-2"></i>
-                                            <h4 class="text-success mb-1">{{ $totalSuratKeluar }}</h4>
-                                            <small class="text-muted">Total Surat Keluar</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             @else
                             <div class="text-center text-muted py-5">
                                 <i class="fas fa-chart-line fa-4x mb-3 opacity-50"></i>
