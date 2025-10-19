@@ -159,26 +159,26 @@
             </div>
         </div>
 
-        <!-- Aktivitas Terbaru - SEJAJAR DENGAN CARD & CHART -->
+        <!-- Aktivitas Terbaru - FIXED HEIGHT APPROACH -->
         <div class="col-md-4">
-            <div class="card shadow" id="activityContainer">
+            <div class="card shadow h-100" id="activityContainer">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">
                         <i class="fas fa-clock me-2"></i>Aktivitas Terbaru
                     </h6>
                 </div>
-                <div class="card-body p-0 d-flex flex-column" style="height: 500px;">
-                    <!-- Surat Masuk Terbaru - HANYA 2 ITEM TERBARU -->
-                    <div class="activity-section">
+                <div class="card-body p-0 d-flex flex-column" style="height: calc(100% - 60px);">
+                    
+                    <!-- Surat Masuk Terbaru - FIXED HEIGHT SECTION -->
+                    <div class="activity-section flex-fill" style="min-height: 240px; max-height: 240px;">
                         <div class="p-3 border-bottom bg-light">
-                            <h6 class="font-weight-bold text-primary mb-3">
+                            <h6 class="font-weight-bold text-primary mb-0">
                                 <i class="fas fa-envelope me-2"></i>Surat Masuk
                                 <span class="badge bg-primary float-end">{{ $validSuratMasuk->count() }}</span>
                             </h6>
                         </div>
-                        <div class="activity-scroll-container">
+                        <div class="activity-content h-100" style="overflow-y: auto;">
                             @if($validSuratMasuk->count() > 0)
-                            <div class="activity-scroll-content">
                                 @foreach($validSuratMasuk as $surat)
                                 <div class="activity-item p-3 border-bottom">
                                     <div class="d-flex justify-content-between align-items-start">
@@ -203,27 +203,27 @@
                                     </div>
                                 </div>
                                 @endforeach
-                            </div>
                             @else
-                            <div class="text-center text-muted py-5">
-                                <i class="fas fa-inbox fa-2x mb-2 opacity-50"></i>
-                                <p class="small mb-0">Tidak ada surat masuk terbaru</p>
-                            </div>
+                                <div class="h-100 d-flex align-items-center justify-content-center text-center text-muted p-4">
+                                    <div>
+                                        <i class="fas fa-inbox fa-2x mb-2 opacity-50"></i>
+                                        <p class="small mb-0">Tidak ada surat masuk terbaru</p>
+                                    </div>
+                                </div>
                             @endif
                         </div>
                     </div>
 
-                    <!-- Surat Keluar Terbaru - HANYA 2 ITEM TERBARU -->
-                    <div class="activity-section">
+                    <!-- Surat Keluar Terbaru - FIXED HEIGHT SECTION -->
+                    <div class="activity-section flex-fill" style="min-height: 240px; max-height: 240px;">
                         <div class="p-3 border-bottom bg-light">
-                            <h6 class="font-weight-bold text-success mb-3">
+                            <h6 class="font-weight-bold text-success mb-0">
                                 <i class="fas fa-paper-plane me-2"></i>Surat Keluar
                                 <span class="badge bg-success float-end">{{ $validSuratKeluar->count() }}</span>
                             </h6>
                         </div>
-                        <div class="activity-scroll-container">
+                        <div class="activity-content h-100" style="overflow-y: auto;">
                             @if($validSuratKeluar->count() > 0)
-                            <div class="activity-scroll-content">
                                 @foreach($validSuratKeluar as $surat)
                                 <div class="activity-item p-3 border-bottom">
                                     <div class="d-flex justify-content-between align-items-start">
@@ -248,15 +248,17 @@
                                     </div>
                                 </div>
                                 @endforeach
-                            </div>
                             @else
-                            <div class="text-center text-muted py-5">
-                                <i class="fas fa-paper-plane fa-2x mb-2 opacity-50"></i>
-                                <p class="small mb-0">Tidak ada surat keluar terbaru</p>
-                            </div>
+                                <div class="h-100 d-flex align-items-center justify-content-center text-center text-muted p-4">
+                                    <div>
+                                        <i class="fas fa-paper-plane fa-2x mb-2 opacity-50"></i>
+                                        <p class="small mb-0">Tidak ada surat keluar terbaru</p>
+                                    </div>
+                                </div>
                             @endif
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -272,12 +274,15 @@
     padding-right: 25px;
 }
 
-/* Styling untuk activity sections */
+/* FIXED: Activity container styling - menggunakan fixed height */
+#activityContainer {
+    height: 580px; /* Fixed height untuk konsistensi */
+}
+
 .activity-section {
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0;
     border-bottom: 1px solid #e3e6f0;
 }
 
@@ -285,34 +290,28 @@
     border-bottom: none;
 }
 
-/* Container untuk scroll */
-.activity-scroll-container {
+/* Content area dengan scroll yang stabil */
+.activity-content {
     flex: 1;
     overflow-y: auto;
-    min-height: 0;
 }
 
-/* Content untuk scroll */
-.activity-scroll-content {
-    min-height: min-content;
-}
-
-/* Scroll bar styling */
-.activity-scroll-container::-webkit-scrollbar {
+/* Scroll bar styling yang konsisten */
+.activity-content::-webkit-scrollbar {
     width: 6px;
 }
 
-.activity-scroll-container::-webkit-scrollbar-track {
+.activity-content::-webkit-scrollbar-track {
     background: #f8f9fc;
     border-radius: 3px;
 }
 
-.activity-scroll-container::-webkit-scrollbar-thumb {
+.activity-content::-webkit-scrollbar-thumb {
     background: #d1d3e2;
     border-radius: 3px;
 }
 
-.activity-scroll-container::-webkit-scrollbar-thumb:hover {
+.activity-content::-webkit-scrollbar-thumb:hover {
     background: #b7b9cc;
 }
 
@@ -321,6 +320,7 @@
     transition: all 0.2s ease;
     cursor: pointer;
     border-left: 3px solid transparent;
+    background: #fff;
 }
 
 .activity-item:hover {
@@ -338,11 +338,6 @@
 .badge {
     font-size: 0.7rem;
     padding: 0.25rem 0.5rem;
-}
-
-/* Pastikan card activity container memiliki tinggi maksimum sama dengan chart */
-#activityContainer {
-    height: 100%;
 }
 
 /* Chart area styling */
@@ -391,11 +386,12 @@
     
     #activityContainer {
         height: auto;
-        min-height: 400px;
+        min-height: 500px;
     }
     
-    .activity-scroll-container {
-        max-height: 200px;
+    .activity-section {
+        min-height: 200px !important;
+        max-height: 200px !important;
     }
     
     .chart-area {
@@ -411,6 +407,11 @@
 .card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Empty state styling */
+.text-muted i {
+    opacity: 0.5;
 }
 </style>
 @endpush
@@ -579,30 +580,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         console.log('Enhanced chart created successfully');
-        
-        // Function untuk menyesuaikan tinggi Activity Container dengan Chart Container
-        function adjustActivityHeight() {
-            const chartContainer = document.getElementById('chartContainer');
-            const activityContainer = document.getElementById('activityContainer');
-            
-            if (chartContainer && activityContainer) {
-                const chartHeight = chartContainer.offsetHeight;
-                
-                if (chartHeight > 0) {
-                    activityContainer.style.height = chartHeight + 'px';
-                }
-            }
-        }
-        
-        // Initial adjustment
-        setTimeout(adjustActivityHeight, 500);
-        
-        // Adjust on window resize with debounce
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(adjustActivityHeight, 250);
-        });
         
     } catch (error) {
         console.error('Error creating enhanced chart:', error);
