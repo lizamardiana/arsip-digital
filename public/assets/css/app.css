@@ -1,0 +1,160 @@
+/* Custom Styles for Arsip Surat Application */
+
+:root {
+    --primary: #3b82f6;
+    --secondary: #6c757d;
+    --success: #10b981;
+    --info: #06b6d4;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --light: #f8f9fa;
+    --dark: #1f2937;
+    --sidebar-bg: #1e293b;
+    --sidebar-hover: #334155;
+}
+
+/* Sidebar Styles */
+.sb-sidenav {
+    background-color: var(--sidebar-bg);
+}
+
+.sb-sidenav .sb-sidenav-menu .nav-link {
+    color: #cbd5e1;
+    border-radius: 0.375rem;
+    margin: 0.125rem 0.5rem;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav-link:hover {
+    background-color: var(--sidebar-hover);
+    color: #fff;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav-link.active {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav-link .sb-nav-link-icon {
+    color: #94a3b8;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
+    color: #fff;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Table Styles */
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: var(--dark);
+    background-color: #f8f9fa;
+}
+
+/* Badge Styles */
+.badge {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom DataTables */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 1rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 0.375rem;
+    margin: 0 0.125rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+
+    .btn-group .btn {
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* Animation */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
