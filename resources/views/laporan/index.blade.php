@@ -48,7 +48,7 @@
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-file-pdf me-2"></i>Generate Laporan
+                            <i class="fas fa-file-pdf me-2"></i>Buat Laporan
                         </button>
                     </div>
                 </form>
@@ -194,67 +194,6 @@
     </div>
 </div>
 @endif
-
-<!-- Statistik Detail -->
-<div class="row mt-4 mx-3">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0">Statistik Detail Tahun {{ date('Y') }}</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h6 class="text-primary">Surat Masuk per Bulan</h6>
-                        <ul class="list-group">
-                            @php
-                                $suratMasukPerBulan = \App\Models\SuratMasuk::selectRaw('MONTH(tanggal_surat) as bulan, COUNT(*) as total')
-                                    ->whereYear('tanggal_surat', date('Y'))
-                                    ->groupBy('bulan')
-                                    ->orderBy('bulan')
-                                    ->get()
-                                    ->keyBy('bulan');
-                            @endphp
-                            @for($i = 1; $i <= 12; $i++)
-                                @php
-                                    $monthName = DateTime::createFromFormat('!m', $i)->format('F');
-                                    $count = $suratMasukPerBulan->get($i) ? $suratMasukPerBulan->get($i)->total : 0;
-                                @endphp
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ $monthName }}
-                                    <span class="badge bg-primary rounded-pill">{{ $count }}</span>
-                                </li>
-                            @endfor
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-success">Surat Keluar per Bulan</h6>
-                        <ul class="list-group">
-                            @php
-                                $suratKeluarPerBulan = \App\Models\SuratKeluar::selectRaw('MONTH(tanggal_surat) as bulan, COUNT(*) as total')
-                                    ->whereYear('tanggal_surat', date('Y'))
-                                    ->groupBy('bulan')
-                                    ->orderBy('bulan')
-                                    ->get()
-                                    ->keyBy('bulan');
-                            @endphp
-                            @for($i = 1; $i <= 12; $i++)
-                                @php
-                                    $monthName = DateTime::createFromFormat('!m', $i)->format('F');
-                                    $count = $suratKeluarPerBulan->get($i) ? $suratKeluarPerBulan->get($i)->total : 0;
-                                @endphp
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ $monthName }}
-                                    <span class="badge bg-success rounded-pill">{{ $count }}</span>
-                                </li>
-                            @endfor
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 @endsection
 

@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col-12">
                             <a href="{{ route('surat-masuk.index') }}" class="btn btn-secondary btn-sm">
-                                <i class="fas fa-redo me-2"></i>Reset Filter
+                                <i class="fas fa-redo me-2"></i>Atur Ulang
                             </a>
                         </div>
                     </div>
