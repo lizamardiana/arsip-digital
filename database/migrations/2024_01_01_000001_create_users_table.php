@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->string('jabatan')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'staff', 'user'])->default('user');
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
             $table->string('avatar')->nullable();
