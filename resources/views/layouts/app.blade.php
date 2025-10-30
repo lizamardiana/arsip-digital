@@ -53,7 +53,7 @@
         /* Header Sidebar yang menjadi bagian navbar */
         .sidebar-header {
             height: 70px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #667eea;
             color: white;
             display: flex;
             align-items: center;
@@ -89,7 +89,7 @@
             height: 70px;
             z-index: 1030;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            background: #667EEA !important;
             border: none;
             transition: all 0.3s ease;
         }
