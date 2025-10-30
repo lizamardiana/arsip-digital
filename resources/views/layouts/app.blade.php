@@ -421,7 +421,7 @@
         <div class="sidebar" id="sidebar">
             <!-- Header Sidebar -->
             <div class="sidebar-header">
-                <h6><i class="fas fa-archive me-2"></i>Sistem Arsip Surat</h6>
+                <h6><i class="fas fa-archive me-2"></i>Arsip Surat</h6>
             </div>
             
             <!-- Konten Sidebar -->
@@ -431,7 +431,7 @@
                     <div class="nav-section-title">Menu Navigasi</div>
                     <a href="{{ url('/') }}" class="nav-link-custom {{ request()->is('/') ? 'active' : '' }}">
                         <i class="fas fa-tachometer-alt"></i>
-                        Dashboard
+                        Beranda
                     </a>
                     <a href="{{ route('surat-masuk.index') }}" class="nav-link-custom {{ request()->is('surat-masuk*') ? 'active' : '' }}">
                         <i class="fas fa-envelope"></i>
@@ -456,7 +456,6 @@
                         <i class="fas fa-plus-circle"></i>
                         <div>
                             <div>Tambah Surat Masuk</div>
-                            <small style="opacity: 0.9; font-size: 0.75rem;">Input surat masuk baru</small>
                         </div>
                     </a>
                     
@@ -464,7 +463,6 @@
                         <i class="fas fa-plus-circle"></i>
                         <div>
                             <div>Tambah Surat Keluar</div>
-                            <small style="opacity: 0.9; font-size: 0.75rem;">Input surat keluar baru</small>
                         </div>
                     </a>
                 </div>
@@ -482,7 +480,7 @@
                         </button>
                         
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <i class="fas fa-home me-2"></i>Dashboard
+                            <i class="fas fa-home me-2"></i>Beranda
                         </a>
                     </div>
 
