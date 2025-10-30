@@ -12,12 +12,13 @@ class DatabaseSeeder extends Seeder
     {
         // Create default admin user
         User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@arsipsurat.com',
+            'name' => 'Nabilatul Fikrah S.IP',
+            'email' => 'nabilatulfkrh@gmail.com',
+            'nip' => '199203052015072003',
+            'jabatan' => 'Staff Bidang PU',
             'password' => Hash::make('password123'),
-            'role' => 'admin',
             'phone' => '081234567890',
-            'address' => 'Jl. Contoh Alamat No. 123',
+            'address' => 'Jl. Jend. Basuki Rachmat No. 1, Telanaipura, Kota Jambi, Jambi 36124',
             'is_active' => true,
         ]);
 

@@ -46,6 +46,25 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
+                                <label for="nip" class="form-label">NIP</label>
+                                <input type="text" class="form-control" id="nip" name="nip" 
+                                       value="{{ old('nip', $user->nip) }}" placeholder="Masukkan NIP">
+                                <small class="text-muted">NIP bersifat unik dan opsional</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="jabatan" class="form-label">Jabatan</label>
+                                <input type="text" class="form-control" id="jabatan" name="jabatan" 
+                                       value="{{ old('jabatan', $user->jabatan) }}" placeholder="Masukkan jabatan">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
                                 <label for="role" class="form-label">Role <span class="text-danger">*</span></label>
                                 <select class="form-select" id="role" name="role" required>
                                     <option value="">Pilih Role</option>
@@ -61,14 +80,14 @@
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Telepon</label>
                                 <input type="text" class="form-control" id="phone" name="phone" 
-                                       value="{{ old('phone', $user->phone) }}">
+                                       value="{{ old('phone', $user->phone) }}" placeholder="Masukkan nomor telepon">
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="address" class="form-label">Alamat</label>
-                        <textarea class="form-control" id="address" name="address" rows="3">{{ old('address', $user->address) }}</textarea>
+                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="Masukkan alamat lengkap">{{ old('address', $user->address) }}</textarea>
                     </div>
 
                     <div class="mb-3">
@@ -95,3 +114,24 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+// Validasi form
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+@endpush

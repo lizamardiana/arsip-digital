@@ -120,7 +120,6 @@
 
 
 <!-- Laporan Cepat untuk Surat Masuk dan Surat Keluar -->
-@if(auth()->user()->isAdmin() || auth()->user()->isStaff())
 <div class="row mt-4 mx-3">
     <div class="col-12">
         <div class="card">
@@ -193,7 +192,6 @@
         </div>
     </div>
 </div>
-@endif
 
 @endsection
 

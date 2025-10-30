@@ -91,7 +91,7 @@
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="reset" class="btn btn-secondary me-md-2">
-                            <i class="fas fa-redo me-2"></i>Reset
+                            <i class="fas fa-redo me-2"></i>Atur Ulang
                         </button>
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-save me-2"></i>Update

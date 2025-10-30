@@ -448,7 +448,6 @@
                 </div>
 
                 <!-- Quick Actions - Hanya untuk Admin/Staff -->
-                @if(auth()->check() && (auth()->user()->isAdmin() || auth()->user()->isStaff()))
                 <div class="nav-section">
                     <div class="nav-section-title">Aksi Cepat</div>
                     
@@ -466,7 +465,6 @@
                         </div>
                     </a>
                 </div>
-                @endif
             </div>
         </div>
 

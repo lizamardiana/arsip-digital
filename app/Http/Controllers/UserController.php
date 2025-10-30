@@ -27,6 +27,8 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role' => 'required|in:admin,staff,user',
+            'nip' => 'nullable|string|max:20|unique:users',
+            'jabatan' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string',
         ]);
@@ -36,6 +38,8 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
+            'nip' => $request->nip,
+            'jabatan' => $request->jabatan,
             'phone' => $request->phone,
             'address' => $request->address,
         ]);
@@ -55,6 +59,8 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'role' => 'required|in:admin,staff,user',
+            'nip' => 'nullable|string|max:20|unique:users,nip,' . $user->id,
+            'jabatan' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string',
             'is_active' => 'boolean',
@@ -86,6 +92,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'nip' => 'nullable|string|max:20|unique:users,nip,' . $user->id,
+            'jabatan' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string',
         ]);

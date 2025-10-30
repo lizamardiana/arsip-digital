@@ -45,6 +45,25 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
+                                <label for="nip" class="form-label">NIP</label>
+                                <input type="text" class="form-control" id="nip" name="nip" 
+                                       value="{{ old('nip') }}" placeholder="Masukkan NIP">
+                                <small class="text-muted">NIP bersifat unik dan opsional</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="jabatan" class="form-label">Jabatan</label>
+                                <input type="text" class="form-control" id="jabatan" name="jabatan" 
+                                       value="{{ old('jabatan') }}" placeholder="Masukkan jabatan">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
                                 <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                                 <div class="invalid-feedback">Harap isi password.</div>
@@ -78,14 +97,14 @@
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Telepon</label>
                                 <input type="text" class="form-control" id="phone" name="phone" 
-                                       value="{{ old('phone') }}">
+                                       value="{{ old('phone') }}" placeholder="Masukkan nomor telepon">
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="address" class="form-label">Alamat</label>
-                        <textarea class="form-control" id="address" name="address" rows="3">{{ old('address') }}</textarea>
+                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="Masukkan alamat lengkap">{{ old('address') }}</textarea>
                     </div>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -102,3 +121,41 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+// Validasi form
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
+// Validasi konfirmasi password
+document.addEventListener('DOMContentLoaded', function() {
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('password_confirmation');
+    
+    function validatePassword() {
+        if (password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity('Password tidak cocok');
+        } else {
+            confirmPassword.setCustomValidity('');
+        }
+    }
+    
+    password.addEventListener('change', validatePassword);
+    confirmPassword.addEventListener('keyup', validatePassword);
+});
+</script>
+@endpush

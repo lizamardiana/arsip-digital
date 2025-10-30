@@ -56,8 +56,6 @@ class SuratMasukController extends Controller
         try {
             $data = $request->validated();
             $data['user_id'] = auth()->id();
-            $data['nomor_surat'] = $this->generateNomorSurat();
-
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
                 $fileName = time() . '_' . Str::slug($data['perihal']) . '.' . $file->getClientOriginalExtension();
@@ -191,17 +189,5 @@ class SuratMasukController extends Controller
         ];
 
         return response()->download($filePath, $fileName, $headers);
-    }
-
-    private function generateNomorSurat()
-    {
-        $year = now()->year;
-        $lastSurat = SuratMasuk::whereYear('created_at', $year)
-            ->orderBy('id', 'desc')
-            ->first();
-
-        $sequence = $lastSurat ? intval(substr($lastSurat->nomor_surat, -3)) + 1 : 1;
-
-        return "SM/{$year}/" . str_pad($sequence, 3, '0', STR_PAD_LEFT);
     }
 }

@@ -14,6 +14,7 @@ class SuratMasukRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
+            'nomor_surat' => 'required|string|max:100', // ✅ TAMBAHKAN INI
             'tanggal_surat' => 'required|date',
             'tanggal_terima' => 'required|date',
             'pengirim' => 'required|string|max:255',
@@ -33,6 +34,8 @@ class SuratMasukRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'nomor_surat.required' => 'Nomor surat harus diisi.', // ✅ TAMBAHKAN INI
+            'nomor_surat.max' => 'Nomor surat maksimal 100 karakter.', // ✅ TAMBAHKAN INI
             'tanggal_surat.required' => 'Tanggal surat harus diisi.',
             'tanggal_terima.required' => 'Tanggal terima harus diisi.',
             'pengirim.required' => 'Pengirim harus diisi.',
