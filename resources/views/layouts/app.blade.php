@@ -421,7 +421,7 @@
         <div class="sidebar" id="sidebar">
             <!-- Header Sidebar -->
             <div class="sidebar-header">
-                <h6><i class="fas fa-archive me-2"></i>Arsip Surat</h6>
+                <h6><i class="fas fa-archive me-2"></i>Sistem Arsip Surat</h6>
             </div>
             
             <!-- Konten Sidebar -->
@@ -490,11 +490,11 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">Masuk</a>
                             @endif
 
                             @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">Daftar</a>
                             @endif
                         @else
                             <div class="nav-item dropdown user-dropdown">
@@ -504,10 +504,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <!-- Tambahkan link profil di sini -->
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        <i class="fas fa-user me-2"></i>Profil Saya
+                                    </a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="fas fa-sign-out-alt me-2"></i>{{ __('Logout') }}
+                                        <i class="fas fa-sign-out-alt me-2"></i>Keluar
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
