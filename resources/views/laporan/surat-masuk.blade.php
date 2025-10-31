@@ -25,7 +25,6 @@
         <!-- Header -->
         <div class="header">
             <h2>LAPORAN SURAT MASUK</h2>
-            <h4>SISTEM ARSIP SURAT DIGITAL</h4>
             <p>Periode: {{ \Carbon\Carbon::parse($startDate)->format('d F Y') }} - {{ \Carbon\Carbon::parse($endDate)->format('d F Y') }}</p>
             <p>Dibuat pada: {{ \Carbon\Carbon::now()->format('d F Y H:i') }}</p>
         </div>
@@ -33,7 +32,7 @@
         <!-- Tombol Print -->
         <div class="no-print mb-3">
             <button onclick="window.print()" class="btn btn-primary">
-                <i class="fas fa-print me-2"></i>Print Laporan
+                <i class="fas fa-print me-2"></i>Cetak Laporan
             </button>
             <button onclick="window.history.back()" class="btn btn-secondary">
                 <i class="fas fa-arrow-left me-2"></i>Kembali
